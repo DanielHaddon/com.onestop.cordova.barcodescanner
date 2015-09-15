@@ -66,6 +66,7 @@ function BarcodeScanner() {
  *        text : '12345-mock',    // The code that was scanned.
  *        format : 'FORMAT_NAME', // Code format.
  *        cancelled : true/false, // Was canceled.
+ *        extension : '12-mock', // The extension included for ean13.
  *    }
  * @param {Function} errorCallback
  */
