@@ -114,6 +114,7 @@ public class BarcodeScanner extends CordovaPlugin {
     public void scan(JSONArray args) {
         Intent intentScan = new Intent(SCAN_INTENT);
         intentScan.addCategory(Intent.CATEGORY_DEFAULT);
+		intentScan.putExtra("ALLOWED_EAN_EXTENSIONS", new int[] {2});
 
         // add config as intent extras
         if(args.length() > 0) {
@@ -190,11 +191,11 @@ public class BarcodeScanner extends CordovaPlugin {
                     obj.put(CANCELLED, false);
                     obj.put(EXTENSION, intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION"));
 					
-					final String resultEanExtension = intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION");
+					final String ext = intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION");
 					// Shows a toast
 					cordova.getActivity().runOnUiThread(new Runnable() {
 						public void run() {
-							Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), resultEanExtension, duration);
+							Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), ext, duration);
 							toast.show();
 						}
 					});
