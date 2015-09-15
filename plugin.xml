@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
-    id="phonegap-plugin-barcodescanner"
+    id="com.onestop.cordova.barcodescanner"
     version="4.0.2">
 
     <name>BarcodeScanner</name>
@@ -356,7 +356,7 @@
         <lib-file src="src/blackberry10/native/simulator/libBarcodeScanner.so" arch="simulator"/>
         <config-file target="www/config.xml" parent="/widget">
             <feature name="BarcodeScanner">
-		<param name="blackberry-package" value="phonegap-plugin-barcodescanner" />
+		<param name="blackberry-package" value="com.onestop.cordova.barcodescanner" />
 	    </feature>
         </config-file>
         <config-file target="www/config.xml" parent="/widget/rim:permissions">
