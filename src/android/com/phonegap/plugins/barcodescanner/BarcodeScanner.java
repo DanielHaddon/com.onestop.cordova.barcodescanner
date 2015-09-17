@@ -175,30 +175,22 @@ public class BarcodeScanner extends CordovaPlugin {
                 JSONObject obj = new JSONObject();
 				
 				final int duration = Toast.LENGTH_SHORT;
-				final String action = "Results are returned! Omg";
 				
 				// Shows a toast
-				cordova.getActivity().runOnUiThread(new Runnable() {
-					public void run() {
-						Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
-						toast.show();
-					}
-				});
+				//cordova.getActivity().runOnUiThread(new Runnable() {
+				//	public void run() {
+				//		Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), action, duration);
+				//		toast.show();
+				//	}
+				//});
 				
                 try {
                     obj.put(TEXT, intent.getStringExtra("SCAN_RESULT"));
                     obj.put(FORMAT, intent.getStringExtra("SCAN_RESULT_FORMAT"));
                     obj.put(CANCELLED, false);
-                    obj.put(EXTENSION, intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION"));
-					
+                    obj.put(EXTENSION, intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION"));					
 					final String ext = intent.getStringExtra("SCAN_RESULT_UPC_EAN_EXTENSION");
-					// Shows a toast
-					cordova.getActivity().runOnUiThread(new Runnable() {
-						public void run() {
-							Toast toast = Toast.makeText(cordova.getActivity().getApplicationContext(), ext, duration);
-							toast.show();
-						}
-					});
+										
                 } catch (JSONException e) {
                     Log.d(LOG_TAG, "This should never happen");
 					// Shows a toast
